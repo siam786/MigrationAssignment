@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->text('description');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */
